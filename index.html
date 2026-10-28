@@ -212,8 +212,12 @@ body { transition: background-color 0.35s var(--ease), color 0.35s var(--ease); 
 .proj:first-child { border-top: none; padding-top: 0; }
 .proj:hover { border-color: var(--line-2); }
 .proj-n { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; color: var(--faint); padding-top: 0.5rem; }
-.proj-title { font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 1.5rem; letter-spacing: -0.02em; display: inline-flex; align-items: center; gap: 0.8rem; transition: color 0.25s var(--ease); }
-.proj:hover .proj-title { color: var(--accent); }
+.proj-title {
+  font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 1.5rem; letter-spacing: -0.02em;
+  display: inline-flex; align-items: center; gap: 0.8rem;
+}
+.proj-title .pt { text-decoration: underline 1px transparent; text-underline-offset: 6px; transition: text-decoration-color 0.25s var(--ease); }
+.proj:hover .proj-title .pt { text-decoration-color: var(--dim); }
 .proj-badge { font-family: 'JetBrains Mono', monospace; font-size: 0.62rem; letter-spacing: 0.1em; color: var(--dim); border: 1px solid var(--line-2); padding: 0.18rem 0.5rem; border-radius: 3px; }
 .proj-desc { color: var(--dim); font-size: 0.97rem; margin: 0.7rem 0 1rem; max-width: 54ch; }
 .proj-feat { list-style: none; margin-bottom: 1.1rem; }
@@ -227,21 +231,6 @@ body { transition: background-color 0.35s var(--ease), color 0.35s var(--ease); 
 /* whole card opens the repo */
 .proj-link::after { content: ''; position: absolute; inset: 0; z-index: 1; }
 
-/* "GitHub" cursor bubble (mouse/trackpad only) */
-.cursor-pill {
-  position: fixed; top: 0; left: 0; z-index: 200;
-  width: 84px; height: 84px; margin: -42px 0 0 -42px;
-  border-radius: 50%;
-  background: var(--accent); color: var(--bg);
-  display: flex; align-items: center; justify-content: center; gap: 0.2rem;
-  font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; font-weight: 500; letter-spacing: 0.02em;
-  pointer-events: none;
-  opacity: 0; transform: translate3d(-200px,-200px,0) scale(0.3);
-  transition: opacity 0.2s var(--ease);
-  will-change: transform;
-}
-.cursor-pill.on { opacity: 1; }
-.has-pill .proj, .has-pill .proj * { cursor: none; }
 
 /* skills */
 .skills { display: flex; flex-direction: column; }
@@ -393,7 +382,7 @@ a.ctag:hover { background: rgba(70,208,138,0.08); border-color: var(--ok); }
         <li class="proj">
           <div class="proj-n">01</div>
           <div>
-            <div class="proj-title">MITRE ATT&amp;CK Cloud Detection Engine <span class="proj-badge">ATT&amp;CK-MAPPED</span></div>
+            <div class="proj-title"><span class="pt">MITRE ATT&amp;CK Cloud Detection Engine</span> <span class="proj-badge">ATT&amp;CK-MAPPED</span></div>
             <p class="proj-desc">It reads AWS CloudTrail logs, from files or live through Boto3, and flags attacker activity like logging being switched off, extra access keys added to accounts, or data moved to an outside AWS account. Every alert is labelled with its MITRE ATT&amp;CK technique, taken from MITRE's official dataset.</p>
             <ul class="proj-feat">
               <li>39 rules covering 20 techniques; each rule is a small data object, so adding a detection never touches the engine</li>
@@ -408,7 +397,7 @@ a.ctag:hover { background: rgba(70,208,138,0.08); border-color: var(--ok); }
         <li class="proj">
           <div class="proj-n">02</div>
           <div>
-            <div class="proj-title">CloudScanner <span class="proj-badge">AWS-NATIVE</span></div>
+            <div class="proj-title"><span class="pt">CloudScanner</span> <span class="proj-badge">AWS-NATIVE</span></div>
             <p class="proj-desc">An S3 security monitor. It scans every bucket in an AWS account for public access, loose ACLs or policies, and cross-account access, then watches live S3 activity for risky changes.</p>
             <ul class="proj-feat">
               <li>Each finding rated Low to Critical against the CIS AWS Foundations Benchmark</li>
@@ -423,7 +412,7 @@ a.ctag:hover { background: rgba(70,208,138,0.08); border-color: var(--ok); }
         <li class="proj">
           <div class="proj-n">03</div>
           <div>
-            <div class="proj-title">AI-Powered SOAR Engine <span class="proj-badge">SOC TRIAGE</span></div>
+            <div class="proj-title"><span class="pt">AI-Powered SOAR Engine</span> <span class="proj-badge">SOC TRIAGE</span></div>
             <p class="proj-desc">An alert-triage prototype. A Random Forest model trained on synthetic alerts scores each incoming alert from 1 to 100, and the score decides the playbook.</p>
             <ul class="proj-feat">
               <li>Playbooks: open a ticket, notify the team, or isolate the endpoint (simulated)</li>
@@ -574,37 +563,6 @@ a.ctag:hover { background: rgba(70,208,138,0.08); border-color: var(--ok); }
     });
   })();
 
-  // project cards: a "GitHub" bubble follows the cursor (mouse/trackpad only)
-  (function () {
-    if (!window.matchMedia || !matchMedia('(hover: hover) and (pointer: fine)').matches) return;
-    var pill = document.createElement('div');
-    pill.className = 'cursor-pill';
-    pill.setAttribute('aria-hidden', 'true');
-    pill.innerHTML = 'GitHub <span>↗</span>';
-    document.body.appendChild(pill);
-    document.documentElement.classList.add('has-pill');
-
-    var still = matchMedia('(prefers-reduced-motion: reduce)').matches;
-    var x = -200, y = -200, px = x, py = y, s = 0.3, ts = 0.3, raf = null;
-    function frame() {
-      var k = still ? 1 : 0.22;
-      px += (x - px) * k; py += (y - py) * k; s += (ts - s) * (still ? 1 : 0.2);
-      pill.style.transform = 'translate3d(' + px + 'px,' + py + 'px,0) scale(' + s + ')';
-      if (Math.abs(x - px) > 0.3 || Math.abs(y - py) > 0.3 || Math.abs(ts - s) > 0.01) raf = requestAnimationFrame(frame);
-      else raf = null;
-    }
-    function kick() { if (!raf) raf = requestAnimationFrame(frame); }
-
-    [].slice.call(document.querySelectorAll('.proj')).forEach(function (card) {
-      card.addEventListener('mouseenter', function (e) {
-        x = px = e.clientX; y = py = e.clientY; ts = 1;
-        pill.classList.add('on'); kick();
-      });
-      card.addEventListener('mousemove', function (e) { x = e.clientX; y = e.clientY; kick(); });
-      card.addEventListener('mouseleave', function () { ts = 0.3; pill.classList.remove('on'); kick(); });
-    });
-    window.addEventListener('scroll', function () { if (pill.classList.contains('on')) kick(); }, { passive: true });
-  })();
 </script>
 
 </body>

@@ -3,16 +3,25 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Sanay Krishna | Cloud Security Engineer</title>
-<meta name="description" content="Sanay Krishna is a cloud security engineer who builds detection systems, threat pipelines, and automated incident response." />
+<title>Sanay Krishna | Cloud Security · Security Operations</title>
+<meta name="description" content="Sanay Krishna, final-year BCA Honours student in Bengaluru building AWS threat detection, S3 security monitoring, and SOC alert triage tools." />
+<link rel="canonical" href="https://sanay.foo/" />
 <meta property="og:type" content="website" />
-<meta property="og:title" content="Sanay Krishna | Cloud Security Engineer" />
-<meta property="og:description" content="Cloud security engineer. Detection systems, threat pipelines, automated response." />
-<meta property="og:image" content="assets/og-cover.png" />
+<meta property="og:url" content="https://sanay.foo/" />
+<meta property="og:site_name" content="Sanay Krishna" />
+<meta property="og:title" content="Sanay Krishna | Cloud Security · Security Operations" />
+<meta property="og:description" content="AWS threat detection, S3 security monitoring, and SOC alert triage. BCA Honours, Chanakya University." />
+<meta property="og:image" content="https://sanay.foo/assets/og-cover.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Sanay Krishna, Cloud Security and Security Operations" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Sanay Krishna | Cloud Security Engineer" />
-<meta name="twitter:description" content="Cloud security engineer. Detection systems, threat pipelines, automated response." />
-<meta name="twitter:image" content="assets/og-cover.png" />
+<meta name="twitter:title" content="Sanay Krishna | Cloud Security · Security Operations" />
+<meta name="twitter:description" content="AWS threat detection, S3 security monitoring, and SOC alert triage. BCA Honours, Chanakya University." />
+<meta name="twitter:image" content="https://sanay.foo/assets/og-cover.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230B0B0C'/%3E%3Ctext x='16' y='21.5' font-family='monospace' font-size='14' font-weight='700' fill='%23A78BFA' text-anchor='middle'%3ESK%3C/text%3E%3C/svg%3E" />
 <script>
   document.documentElement.classList.add('js');
@@ -24,13 +33,11 @@
   })();
 </script>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap');
-
 :root {
   --bg:        #0B0B0C;
   --text:      #ECECEC;
-  --dim:       #8A8A8E;
-  --faint:     #56565A;
+  --dim:       #A0A0A6;
+  --faint:     #7E7E84;
   --line:      rgba(255,255,255,0.09);
   --line-2:    rgba(255,255,255,0.18);
   --accent:    #A78BFA;
@@ -56,8 +63,8 @@ a { color: inherit; text-decoration: none; }
 [data-theme="light"] {
   --bg:     #F4F2EC;
   --text:   #1B1B1D;
-  --dim:    #696970;
-  --faint:  #A6A49B;
+  --dim:    #55555C;
+  --faint:  #6E6C66;
   --line:   rgba(0,0,0,0.10);
   --line-2: rgba(0,0,0,0.20);
   --accent: #6D55E0;
@@ -180,9 +187,21 @@ body { transition: background-color 0.35s var(--ease), color 0.35s var(--ease); 
 .stat b { font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 2rem; display: block; letter-spacing: -0.02em; }
 .stat span { font-size: 0.78rem; color: var(--dim); letter-spacing: 0.02em; }
 
+.jump {
+  display: inline-flex; align-items: center; gap: 0.7rem;
+  margin-top: 2.6rem; font-size: 0.8rem; color: var(--dim);
+  border-bottom: 1px solid var(--line-2); padding-bottom: 4px;
+  transition: color 0.25s var(--ease), border-color 0.25s var(--ease);
+}
+.jump b { color: var(--text); font-weight: 500; }
+.jump .arr { display: inline-block; color: var(--accent); transition: transform 0.3s var(--ease); }
+.jump:hover { color: var(--text); border-color: var(--accent); }
+.jump:hover .arr { transform: translateY(3px); }
+
 /* work */
 .work { list-style: none; }
 .proj {
+  position: relative;
   display: grid;
   grid-template-columns: 2.4rem 1fr auto;
   gap: 1.6rem;
@@ -198,13 +217,31 @@ body { transition: background-color 0.35s var(--ease), color 0.35s var(--ease); 
 .proj-badge { font-family: 'JetBrains Mono', monospace; font-size: 0.62rem; letter-spacing: 0.1em; color: var(--dim); border: 1px solid var(--line-2); padding: 0.18rem 0.5rem; border-radius: 3px; }
 .proj-desc { color: var(--dim); font-size: 0.97rem; margin: 0.7rem 0 1rem; max-width: 54ch; }
 .proj-feat { list-style: none; margin-bottom: 1.1rem; }
-.proj-feat li { font-size: 0.85rem; color: var(--faint); display: flex; gap: 0.6rem; line-height: 1.7; }
+.proj-feat li { font-size: 0.85rem; color: var(--dim); display: flex; gap: 0.6rem; line-height: 1.7; }
 .proj-feat li::before { content: '/'; color: var(--accent); opacity: 0.6; }
 .proj-tech { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--dim); letter-spacing: 0.01em; }
 .proj-link { font-family: 'JetBrains Mono', monospace; font-size: 0.74rem; color: var(--dim); padding-top: 0.5rem; white-space: nowrap; transition: color 0.25s var(--ease); }
 .proj-link .arr { display: inline-block; transition: transform 0.25s var(--ease); }
 .proj:hover .proj-link { color: var(--text); }
 .proj:hover .proj-link .arr { transform: translate(2px,-2px); }
+/* whole card opens the repo */
+.proj-link::after { content: ''; position: absolute; inset: 0; z-index: 1; }
+
+/* "GitHub" cursor bubble (mouse/trackpad only) */
+.cursor-pill {
+  position: fixed; top: 0; left: 0; z-index: 200;
+  width: 84px; height: 84px; margin: -42px 0 0 -42px;
+  border-radius: 50%;
+  background: var(--accent); color: var(--bg);
+  display: flex; align-items: center; justify-content: center; gap: 0.2rem;
+  font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; font-weight: 500; letter-spacing: 0.02em;
+  pointer-events: none;
+  opacity: 0; transform: translate3d(-200px,-200px,0) scale(0.3);
+  transition: opacity 0.2s var(--ease);
+  will-change: transform;
+}
+.cursor-pill.on { opacity: 1; }
+.has-pill .proj, .has-pill .proj * { cursor: none; }
 
 /* skills */
 .skills { display: flex; flex-direction: column; }
@@ -223,6 +260,7 @@ body { transition: background-color 0.35s var(--ease), color 0.35s var(--ease); 
 .erole { font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 1.2rem; letter-spacing: -0.01em; }
 .eorg { font-size: 0.85rem; color: var(--accent); margin: 0.2rem 0 0.6rem; }
 .edesc { font-size: 0.92rem; color: var(--dim); max-width: 56ch; }
+.edesc-feat { margin: 0.9rem 0 0; max-width: 60ch; }
 
 /* certs */
 .certs { display: flex; flex-direction: column; }
@@ -261,6 +299,7 @@ a.ctag:hover { background: rgba(70,208,138,0.08); border-color: var(--ok); }
 
 /* ===== responsive ===== */
 @media (max-width: 920px) {
+  .theme-toggle { position: absolute; }
   .layout { grid-template-columns: 1fr; }
   .side { position: static; max-height: none; overflow-y: visible; border-right: none; border-bottom: 1px solid var(--line); padding: 2.6rem 2rem; text-align: center; }
   .avatar { margin-left: auto; margin-right: auto; }
@@ -292,6 +331,7 @@ a.ctag:hover { background: rgba(70,208,138,0.08); border-color: var(--ok); }
   html { scroll-behavior: auto; }
   .js [data-rise] { animation: none; opacity: 1; }
   .sdot { animation: none; }
+  .jump .arr, .proj-link .arr { transition: none; }
 }
 </style>
 </head>
@@ -308,7 +348,7 @@ a.ctag:hover { background: rgba(70,208,138,0.08); border-color: var(--ok); }
     <div>
       <img class="avatar" src="assets/profile.jpg" alt="Sanay Krishna" data-rise style="animation-delay:.1s" onerror="this.remove()" />
       <h1 class="name" data-rise style="animation-delay:.12s">Sanay<br>Krishna</h1>
-      <div class="role" data-rise style="animation-delay:.18s"><b>Cloud Security</b> Engineer</div>
+      <div class="role" data-rise style="animation-delay:.18s"><b>Cloud Security</b> · Security Operations</div>
       <div class="loc mono" data-rise style="animation-delay:.24s">Bengaluru, India &nbsp;·&nbsp; Chanakya University</div>
 
       <nav class="index" data-rise style="animation-delay:.3s" aria-label="Sections">
@@ -337,12 +377,13 @@ a.ctag:hover { background: rgba(70,208,138,0.08); border-color: var(--ok); }
 
     <section id="about" class="sec" data-rise style="animation-delay:.18s">
       <div class="sec-head"><span class="sec-n mono">01</span><span class="sec-t mono">About</span></div>
-      <p class="lead">I'm a final-year BCA Honours student who'd rather build cloud security than study it. <span class="soft">The project I'm proudest of maps AWS CloudTrail activity to MITRE ATT&amp;CK and turns log noise into alerts an analyst can act on. The rest cover S3 threat detection, automated incident response, and phishing classification. Based in Bengaluru, India. Most of my time goes to building detection systems and working through hands-on security labs.</span></p>
+      <p class="lead">I'm a final-year BCA Honours student who'd rather build cloud security than study it. <span class="soft">The project I'm proudest of reads AWS CloudTrail logs and flags attacker activity, with every alert labelled by its MITRE ATT&amp;CK technique. The others watch S3 for risky changes and triage SOC alerts by risk. Based in Bengaluru, India. Most of my time goes to building detection systems and working through hands-on security labs.</span></p>
       <div class="stats">
+        <div class="stat"><b>39</b><span>Detection rules shipped</span></div>
+        <div class="stat"><b>02</b><span>Hackathon podiums</span></div>
         <div class="stat"><b>100+</b><span>TryHackMe rooms</span></div>
-        <div class="stat"><b>02</b><span>Hackathon wins</span></div>
-        <div class="stat"><b>05</b><span>Certifications</span></div>
       </div>
+      <a class="jump mono" href="#experience">Now: <b>Application Security Intern</b> at Genki to Asia <span class="arr" aria-hidden="true">↓</span></a>
     </section>
 
     <section id="work" class="sec">
@@ -352,12 +393,12 @@ a.ctag:hover { background: rgba(70,208,138,0.08); border-color: var(--ok); }
         <li class="proj">
           <div class="proj-n">01</div>
           <div>
-            <div class="proj-title">MITRE ATT&amp;CK Detection Engine <span class="proj-badge">ATT&amp;CK-MAPPED</span></div>
-            <p class="proj-desc">It reads AWS CloudTrail logs and matches the activity against MITRE ATT&amp;CK techniques, so a raw line like "CloudTrail was just turned off" comes out as a labelled alert an analyst can act on. The detection rules live as data, not code, so I can add a new one without touching the engine.</p>
+            <div class="proj-title">MITRE ATT&amp;CK Cloud Detection Engine <span class="proj-badge">ATT&amp;CK-MAPPED</span></div>
+            <p class="proj-desc">It reads AWS CloudTrail logs, from files or live through Boto3, and flags attacker activity like logging being switched off, extra access keys added to accounts, or data moved to an outside AWS account. Every alert is labelled with its MITRE ATT&amp;CK technique, taken from MITRE's official dataset.</p>
             <ul class="proj-feat">
-              <li>39 detection rules covering 20 ATT&amp;CK techniques across 9 tactics</li>
-              <li>Normalise → match → enrich with STIX metadata → build alert</li>
-              <li>Coverage dashboard showing which techniques get caught and which slip through</li>
+              <li>39 rules covering 20 techniques; each rule is a small data object, so adding a detection never touches the engine</li>
+              <li>Rules match real CloudTrail logs, not the spec: console logins are logged under signin.amazonaws.com</li>
+              <li>Coverage page shows which cloud techniques still have no rule; 33 tests run against the real MITRE data</li>
             </ul>
             <div class="proj-tech">Python · FastAPI · Pydantic v2 · Boto3 · MITRE STIX · pytest</div>
           </div>
@@ -368,13 +409,13 @@ a.ctag:hover { background: rgba(70,208,138,0.08); border-color: var(--ok); }
           <div class="proj-n">02</div>
           <div>
             <div class="proj-title">CloudScanner <span class="proj-badge">AWS-NATIVE</span></div>
-            <p class="proj-desc">It keeps an eye on your AWS S3 setup and pulls threat signals from CloudTrail and EventBridge. When something looks off, it scores the severity and alerts you over Slack or SNS.</p>
+            <p class="proj-desc">An S3 security monitor. It scans every bucket in an AWS account for public access, loose ACLs or policies, and cross-account access, then watches live S3 activity for risky changes.</p>
             <ul class="proj-feat">
-              <li>Continuous S3 misconfiguration scanning with CIS Benchmark mapping</li>
-              <li>CloudTrail → EventBridge → Lambda → SNS detection pipeline</li>
-              <li>Real-time Slack &amp; SNS alerting with severity classification</li>
+              <li>Each finding rated Low to Critical against the CIS AWS Foundations Benchmark</li>
+              <li>CloudTrail → EventBridge → Lambda pipeline catches bucket policy changes and deletions</li>
+              <li>SNS alert shows who made the change, from which IP, and on which bucket</li>
             </ul>
-            <div class="proj-tech">Python · FastAPI · Boto3 · AWS Lambda · CloudTrail · EventBridge · SNS · Terraform</div>
+            <div class="proj-tech">Python · FastAPI · Jinja2 · Boto3 · AWS Lambda · CloudTrail · EventBridge · SNS · Terraform</div>
           </div>
           <a class="proj-link" href="https://github.com/SanayKrishna/CloudScanner" target="_blank" rel="noopener">GitHub <span class="arr">↗</span></a>
         </li>
@@ -382,31 +423,16 @@ a.ctag:hover { background: rgba(70,208,138,0.08); border-color: var(--ok); }
         <li class="proj">
           <div class="proj-n">03</div>
           <div>
-            <div class="proj-title">AI-Powered SOAR Engine <span class="proj-badge">SOC-READY</span></div>
-            <p class="proj-desc">A SOAR prototype that ranks alerts by risk with a trained model, so the noise stops burying the ones that matter. It runs response playbooks on its own and logs every action for review.</p>
+            <div class="proj-title">AI-Powered SOAR Engine <span class="proj-badge">SOC TRIAGE</span></div>
+            <p class="proj-desc">An alert-triage prototype. A Random Forest model trained on synthetic alerts scores each incoming alert from 1 to 100, and the score decides the playbook.</p>
             <ul class="proj-feat">
-              <li>RandomForestClassifier assigns dynamic risk scores to cut alert fatigue</li>
-              <li>Automated playbooks with conditional response execution</li>
-              <li>Real-time Slack integration and SQLite audit logging</li>
+              <li>Playbooks: open a ticket, notify the team, or isolate the endpoint (simulated)</li>
+              <li>Every alert and action logged to SQLite as an audit trail</li>
+              <li>Flask and Chart.js dashboard shows the live queue and risk trends</li>
             </ul>
-            <div class="proj-tech">Python · Flask · Scikit-learn · Pandas · Chart.js · SQLite · Slack Webhooks</div>
+            <div class="proj-tech">Python · Flask · Scikit-learn · Pandas · Chart.js · SQLite · Vercel</div>
           </div>
           <a class="proj-link" href="https://github.com/SanayKrishna/Ai-Powered-Soar-Engine" target="_blank" rel="noopener">GitHub <span class="arr">↗</span></a>
-        </li>
-
-        <li class="proj">
-          <div class="proj-n">04</div>
-          <div>
-            <div class="proj-title">MailFort <span class="proj-badge">ML-POWERED</span></div>
-            <p class="proj-desc">It reads incoming email, decides whether each one is benign, suspicious, or phishing, and pulls out the indicators that gave it away. A Flask dashboard maps the campaigns and lets you look up IOCs.</p>
-            <ul class="proj-feat">
-              <li>IMAP email fetching with automated feature extraction</li>
-              <li>TF-IDF and RandomForest classification pipeline</li>
-              <li>Flask dashboard with campaign visualisation and IOC lookup</li>
-            </ul>
-            <div class="proj-tech">Python · Flask · Scikit-learn · TfidfVectorizer · Pandas · IMAP · urlextract</div>
-          </div>
-          <a class="proj-link" href="https://github.com/SanayKrishna/MailFort_" target="_blank" rel="noopener">GitHub <span class="arr">↗</span></a>
         </li>
 
       </ol>
@@ -421,15 +447,15 @@ a.ctag:hover { background: rgba(70,208,138,0.08); border-color: var(--ok); }
         </div>
         <div class="srow">
           <div class="skey">Security</div>
-          <div class="sval"><span>Nmap</span><span>Wireshark</span><span>Metasploit</span><span>Burp Suite</span><span>SIEM Concepts</span><span>SOAR</span><span>Incident Response</span></div>
+          <div class="sval"><span>MITRE ATT&amp;CK</span><span>SIEM</span><span>SOAR</span><span>Incident Response</span><span>Threat Detection</span><span>CIS Benchmark</span></div>
         </div>
         <div class="srow">
-          <div class="skey">Languages</div>
-          <div class="sval"><span>Python</span><span>JavaScript</span><span>TypeScript</span><span>Java</span><span>SQL</span><span>Bash</span></div>
+          <div class="skey">Languages &amp; Frameworks</div>
+          <div class="sval"><span>Python</span><span>JavaScript</span><span>TypeScript</span><span>Java</span><span>SQL</span><span>Bash</span><span>Flask</span><span>FastAPI</span><span>React</span><span>Next.js</span><span>Scikit-learn</span></div>
         </div>
         <div class="srow">
-          <div class="skey">Frameworks</div>
-          <div class="sval"><span>Flask</span><span>FastAPI</span><span>React</span><span>Next.js</span><span>Tailwind CSS</span><span>Scikit-learn</span><span>Pandas</span></div>
+          <div class="skey">Tools &amp; Platforms</div>
+          <div class="sval"><span>Nmap</span><span>Wireshark</span><span>Metasploit</span><span>Burp Suite</span><span>Linux</span><span>Git</span><span>PostgreSQL</span><span>SQLite</span><span>MySQL</span></div>
         </div>
       </div>
     </section>
@@ -438,11 +464,17 @@ a.ctag:hover { background: rgba(70,208,138,0.08); border-color: var(--ok); }
       <div class="sec-head"><span class="sec-n mono">04</span><span class="sec-t mono">Experience</span></div>
       <div class="exp">
         <div class="erow">
-          <div class="edate">Since Dec 2025</div>
+          <div class="edate">Dec 2025 – Present</div>
           <div>
             <div class="erole">Application Security Intern</div>
-            <div class="eorg">Asia to Genki LTD, Japan</div>
-            <p class="edesc">I work on mobile app development for a Japanese startup, with a focus on the security side: input validation, safer authentication flows, and protecting how user data gets stored.</p>
+            <div class="eorg">Genki to Asia Co., Ltd., Japan · Remote</div>
+            <p class="edesc">Security reviews for KoKoMata, a location-based mobile app where people pin photos and experiences to real places for others nearby to discover. With a fellow intern, I review the app against the OWASP Top 10 and Mobile Top 10 and co-design the fixes.</p>
+            <ul class="proj-feat edesc-feat">
+              <li>Access control enforced with Row-Level Security, schema-isolated secrets, and SECURITY DEFINER RPCs</li>
+              <li>Session storage secured on-device with expo-secure-store</li>
+              <li>Reviewed OAuth sign-in, parameterised queries in privileged database functions, and HMAC-based location privacy</li>
+              <li>Added audit logging and rate limiting to flag anomalous unlock attempts</li>
+            </ul>
           </div>
         </div>
         <div class="erow">
@@ -450,15 +482,15 @@ a.ctag:hover { background: rgba(70,208,138,0.08); border-color: var(--ok); }
           <div>
             <div class="erole">2nd Place, IKS Hackathon 2026</div>
             <div class="eorg">Chanakya University, Bengaluru</div>
-            <p class="edesc">Built with three teammates in 8 days. ChandaEngine teaches a machine the rules of Sanskrit meter: it classifies syllables, checks verses against 20+ classical meters, and handles the Vipulā forms used in the Mahabharata. FastAPI and Next.js, Sarvam AI for speech, all 21 tests passing.</p>
+            <p class="edesc">ChandaEngine, built with three teammates in 8 days: a computational take on Chandas Shastra, the rules of Sanskrit meter. A rule-based syllabifier with consonant-cluster lookahead feeds 15+ classical meter validators. FastAPI backend, Next.js frontend, Sarvam AI for speech in and out, and 21 passing unit tests.</p>
           </div>
         </div>
         <div class="erow">
-          <div class="edate">Feb 2025</div>
+          <div class="edate">2025</div>
           <div>
-            <div class="erole">3rd Place, Srujana 2025 Hackathon</div>
+            <div class="erole">3rd Place, Srujana Hackathon 2025</div>
             <div class="eorg">Chanakya University, Bengaluru</div>
-            <p class="edesc">Netā-Nomics, a platform that makes public spending easier to follow and harder to hide. Built with Next.js, FastAPI, PostgreSQL, and Google Gemini.</p>
+            <p class="edesc">Netā-Nomics, a platform that makes public spending easier to follow and harder to hide. An AI pipeline uses Tesseract OCR and Google Gemini to pull government expenditure data out of unstructured PDFs, flags anomalies with multiple agents, and drafts RTI and PIL documents. Next.js, FastAPI, PostgreSQL, Docker.</p>
           </div>
         </div>
       </div>
@@ -472,24 +504,8 @@ a.ctag:hover { background: rgba(70,208,138,0.08); border-color: var(--ok); }
           <a class="ctag ok mono" href="https://www.netacad.com/certificates/?issuanceId=80085358-9838-4d97-9968-55ff37f5382b" target="_blank" rel="noopener">VERIFIED ↗</a>
         </div>
         <div class="crow">
-          <div><div class="cname">Google IT Automation with Python</div><div class="cmeta">Coursera / Google · 2023</div></div>
+          <div><div class="cname">Google IT Automation with Python Specialisation</div><div class="cmeta">Coursera / Google · 2023</div></div>
           <a class="ctag ok mono" href="https://coursera.org/share/f95ad2248744674e49b98fb2a530bccf" target="_blank" rel="noopener">VERIFIED ↗</a>
-        </div>
-        <div class="crow">
-          <div><div class="cname">Mastercard Cybersecurity Simulation</div><div class="cmeta">Forage / Mastercard · 2025</div></div>
-          <a class="ctag ok mono" href="https://www.theforage.com/completion-certificates/mfxGwGDp6WkQmtmTf/vcKAB5yYAgvemepGQ_mfxGwGDp6WkQmtmTf_69ba3ab0fb1e9f23f51fd879_1773814031003_completion_certificate.pdf" target="_blank" rel="noopener">VERIFIED ↗</a>
-        </div>
-        <div class="crow">
-          <div><div class="cname">AIG Shields Up: Cybersecurity Simulation</div><div class="cmeta">Forage / AIG · 2025</div></div>
-          <a class="ctag ok mono" href="https://www.theforage.com/completion-certificates/9PBTqmSxAf6zZTseP/E9pA6qsdbeyEkp3ti_9PBTqmSxAf6zZTseP_69ba3ab0fb1e9f23f51fd879_1774411790465_completion_certificate.pdf" target="_blank" rel="noopener">VERIFIED ↗</a>
-        </div>
-        <div class="crow">
-          <div><div class="cname">Tata Group Cybersecurity Simulation</div><div class="cmeta">Forage / Tata · 2025</div></div>
-          <a class="ctag ok mono" href="https://www.theforage.com/completion-certificates/ifobHAoMjQs9s6bKS/gmf3ypEXBj2wvfQWC_ifobHAoMjQs9s6bKS_69ba3ab0fb1e9f23f51fd879_1774416652741_completion_certificate.pdf" target="_blank" rel="noopener">VERIFIED ↗</a>
-        </div>
-        <div class="crow">
-          <div><div class="cname">SOC Level 1 Learning Path</div><div class="cmeta">TryHackMe · 2026</div></div>
-          <a class="ctag ok mono" href="https://tryhackme.com/certificate/THM-KFBONEFPNQ" target="_blank" rel="noopener">COMPLETED ↗</a>
         </div>
         <div class="crow">
           <div><div class="cname">CompTIA Security+ SY0-701</div><div class="cmeta">CompTIA</div></div>
@@ -525,6 +541,8 @@ a.ctag:hover { background: rgba(70,208,138,0.08); border-color: var(--ok); }
       for (var i = 0; i < secs.length; i++) {
         if (secs[i] && secs[i].getBoundingClientRect().top <= mark) current = i;
       }
+      // short last section never reaches the mark: highlight it once we hit the bottom
+      if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) current = secs.length - 1;
       links.forEach(function (a, i) { a.classList.toggle('active', i === current); });
     }
     window.addEventListener('scroll', onScroll, { passive: true });
@@ -539,10 +557,13 @@ a.ctag:hover { background: rgba(70,208,138,0.08); border-color: var(--ok); }
     var ico = document.getElementById('tt-ico');
     var moon = "<svg viewBox='0 0 24 24' width='12' height='12' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z'/></svg>";
     var sun = "<svg viewBox='0 0 24 24' width='12' height='12' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='12' cy='12' r='4'/><path d='M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.4 1.4M17.6 17.6 19 19M19 5l-1.4 1.4M5 19l1.4-1.4'/></svg>";
+    // the button shows the theme you'll switch TO
     function paint() {
       var t = root.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
-      if (label) label.textContent = t === 'light' ? 'Light' : 'Dark';
-      if (ico) ico.innerHTML = t === 'light' ? sun : moon;
+      var next = t === 'light' ? 'dark' : 'light';
+      if (label) label.textContent = next === 'light' ? 'Light' : 'Dark';
+      if (ico) ico.innerHTML = next === 'light' ? sun : moon;
+      if (btn) btn.setAttribute('aria-label', 'Switch to ' + next + ' theme');
     }
     paint();
     if (btn) btn.addEventListener('click', function () {
@@ -551,6 +572,38 @@ a.ctag:hover { background: rgba(70,208,138,0.08); border-color: var(--ok); }
       try { localStorage.setItem('theme', next); } catch (e) {}
       paint();
     });
+  })();
+
+  // project cards: a "GitHub" bubble follows the cursor (mouse/trackpad only)
+  (function () {
+    if (!window.matchMedia || !matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+    var pill = document.createElement('div');
+    pill.className = 'cursor-pill';
+    pill.setAttribute('aria-hidden', 'true');
+    pill.innerHTML = 'GitHub <span>↗</span>';
+    document.body.appendChild(pill);
+    document.documentElement.classList.add('has-pill');
+
+    var still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var x = -200, y = -200, px = x, py = y, s = 0.3, ts = 0.3, raf = null;
+    function frame() {
+      var k = still ? 1 : 0.22;
+      px += (x - px) * k; py += (y - py) * k; s += (ts - s) * (still ? 1 : 0.2);
+      pill.style.transform = 'translate3d(' + px + 'px,' + py + 'px,0) scale(' + s + ')';
+      if (Math.abs(x - px) > 0.3 || Math.abs(y - py) > 0.3 || Math.abs(ts - s) > 0.01) raf = requestAnimationFrame(frame);
+      else raf = null;
+    }
+    function kick() { if (!raf) raf = requestAnimationFrame(frame); }
+
+    [].slice.call(document.querySelectorAll('.proj')).forEach(function (card) {
+      card.addEventListener('mouseenter', function (e) {
+        x = px = e.clientX; y = py = e.clientY; ts = 1;
+        pill.classList.add('on'); kick();
+      });
+      card.addEventListener('mousemove', function (e) { x = e.clientX; y = e.clientY; kick(); });
+      card.addEventListener('mouseleave', function () { ts = 0.3; pill.classList.remove('on'); kick(); });
+    });
+    window.addEventListener('scroll', function () { if (pill.classList.contains('on')) kick(); }, { passive: true });
   })();
 </script>
 

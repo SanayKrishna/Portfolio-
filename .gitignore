@@ -1,0 +1,7 @@
+# local tooling, never publish
+.claude/
+_*.py
+*.log
+.DS_Store
+Thumbs.db
+desktop.ini

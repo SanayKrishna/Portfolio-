@@ -398,11 +398,11 @@ a.ctag:hover { background: rgba(70,208,138,0.08); border-color: var(--ok); }
           <div class="proj-n">02</div>
           <div>
             <div class="proj-title"><span class="pt">CloudScanner</span> <span class="proj-badge">AWS-NATIVE</span></div>
-            <p class="proj-desc">An S3 security monitor. It scans every bucket in an AWS account for public access, loose ACLs or policies, and cross-account access, then watches live S3 activity for risky changes.</p>
+            <p class="proj-desc">An S3 security monitor. It scans every bucket in an AWS account for public access, loose ACLs or policies, cross-account access and missing Block Public Access, then alerts in real time on risky changes.</p>
             <ul class="proj-feat">
-              <li>Each finding rated Low to Critical against the CIS AWS Foundations Benchmark</li>
-              <li>CloudTrail → EventBridge → Lambda pipeline catches bucket policy changes and deletions</li>
-              <li>SNS alert shows who made the change, from which IP, and on which bucket</li>
+              <li>Each finding rated Low to Critical and mapped to CIS and AWS Security Hub controls</li>
+              <li>CloudTrail → EventBridge → Lambda pipeline catches policy, ACL and encryption changes and deletions</li>
+              <li>SNS alert shows who made the change, from which IP, and on which bucket; 24 tests in CI</li>
             </ul>
             <div class="proj-tech">Python · FastAPI · Jinja2 · Boto3 · AWS Lambda · CloudTrail · EventBridge · SNS · Terraform</div>
           </div>
@@ -415,11 +415,11 @@ a.ctag:hover { background: rgba(70,208,138,0.08); border-color: var(--ok); }
             <div class="proj-title"><span class="pt">AI-Powered SOAR Engine</span> <span class="proj-badge">SOC TRIAGE</span></div>
             <p class="proj-desc">An alert-triage prototype. A Random Forest model trained on synthetic alerts scores each incoming alert from 1 to 100, and the score decides the playbook.</p>
             <ul class="proj-feat">
-              <li>Playbooks: open a ticket, notify the team, or isolate the endpoint (simulated)</li>
-              <li>Every alert and action logged to SQLite as an audit trail</li>
+              <li>Playbooks: open a ticket, notify the team on Slack, or isolate the endpoint (simulated)</li>
+              <li>High-risk alerts posted to Slack through a webhook; every alert and action logged to SQLite</li>
               <li>Flask and Chart.js dashboard shows the live queue and risk trends</li>
             </ul>
-            <div class="proj-tech">Python · Flask · Scikit-learn · Pandas · Chart.js · SQLite · Vercel</div>
+            <div class="proj-tech">Python · Flask · Scikit-learn · Pandas · Chart.js · SQLite · Slack Webhooks</div>
           </div>
           <a class="proj-link" href="https://github.com/SanayKrishna/Ai-Powered-Soar-Engine" target="_blank" rel="noopener">GitHub <span class="arr">↗</span></a>
         </li>
@@ -444,7 +444,7 @@ a.ctag:hover { background: rgba(70,208,138,0.08); border-color: var(--ok); }
         </div>
         <div class="srow">
           <div class="skey">Tools &amp; Platforms</div>
-          <div class="sval"><span>Nmap</span><span>Wireshark</span><span>Metasploit</span><span>Burp Suite</span><span>Linux</span><span>Git</span><span>PostgreSQL</span><span>SQLite</span><span>MySQL</span></div>
+          <div class="sval"><span>Nmap</span><span>Wireshark</span><span>Metasploit</span><span>Burp Suite</span><span>Linux</span><span>Git</span><span>GitHub Actions</span><span>PostgreSQL</span><span>SQLite</span><span>MySQL</span></div>
         </div>
       </div>
     </section>

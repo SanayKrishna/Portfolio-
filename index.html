@@ -210,14 +210,14 @@ body { transition: background-color 0.35s var(--ease), color 0.35s var(--ease); 
   transition: border-color 0.3s var(--ease);
 }
 .proj:first-child { border-top: none; padding-top: 0; }
-.proj:hover { border-color: var(--line-2); }
+.proj:hover { border-color: var(--accent); }
 .proj-n { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; color: var(--faint); padding-top: 0.5rem; }
 .proj-title {
   font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 1.5rem; letter-spacing: -0.02em;
   display: inline-flex; align-items: center; gap: 0.8rem;
 }
 .proj-title .pt { text-decoration: underline 1px transparent; text-underline-offset: 6px; transition: text-decoration-color 0.25s var(--ease); }
-.proj:hover .proj-title .pt { text-decoration-color: var(--dim); }
+.proj:hover .proj-title .pt { text-decoration-color: var(--accent); }
 .proj-badge { font-family: 'JetBrains Mono', monospace; font-size: 0.62rem; letter-spacing: 0.1em; color: var(--dim); border: 1px solid var(--line-2); padding: 0.18rem 0.5rem; border-radius: 3px; }
 .proj-desc { color: var(--dim); font-size: 0.97rem; margin: 0.7rem 0 1rem; max-width: 54ch; }
 .proj-feat { list-style: none; margin-bottom: 1.1rem; }
@@ -247,9 +247,11 @@ body { transition: background-color 0.35s var(--ease), color 0.35s var(--ease); 
 .ctf-cats span { font-size: 0.68rem; letter-spacing: 0.06em; color: var(--dim); border: 1px solid var(--line-2); padding: 0.18rem 0.5rem; border-radius: 3px; }
 .ctf-links a { color: var(--text); text-decoration: underline 1px var(--line-2); text-underline-offset: 4px; transition: text-decoration-color 0.25s var(--ease), color 0.25s var(--ease); }
 .ctf-links a:hover { color: var(--accent); text-decoration-color: var(--accent); }
-.ctf-all { display: inline-block; margin-top: 1rem; font-size: 0.74rem; color: var(--dim); transition: color 0.25s var(--ease); }
+.ctf-all { position: relative; display: inline-block; margin-top: 1rem; font-size: 0.74rem; color: var(--dim); transition: color 0.25s var(--ease); }
 .ctf-all .arr { display: inline-block; transition: transform 0.25s var(--ease); }
 .ctf-all:hover { color: var(--text); }
+.ctf-all::after { content: ''; position: absolute; left: 0; bottom: -3px; width: 0; height: 1px; background: var(--accent); transition: width 0.28s var(--ease); }
+.ctf-all:hover::after { width: 100%; }
 .ctf-all:hover .arr { transform: translate(2px,-2px); }
 
 /* experience */
@@ -281,6 +283,8 @@ a.ctag:hover { background: rgba(70,208,138,0.08); border-color: var(--ok); }
 .contact-links { display: flex; gap: 1.6rem; font-family: 'JetBrains Mono', monospace; font-size: 0.82rem; }
 .contact-links a { color: var(--dim); position: relative; transition: color 0.25s var(--ease); }
 .contact-links a:hover { color: var(--text); }
+.contact-links a::after { content: ''; position: absolute; left: 0; bottom: -3px; width: 0; height: 1px; background: var(--accent); transition: width 0.28s var(--ease); }
+.contact-links a:hover::after { width: 100%; }
 .contact-links a .arr { display: inline-block; transition: transform 0.25s var(--ease); }
 .contact-links a:hover .arr { transform: translate(2px,-2px); }
 

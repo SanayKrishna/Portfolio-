@@ -4,20 +4,20 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Sanay Krishna | Cloud Security · Security Operations</title>
-<meta name="description" content="Sanay Krishna, final-year BCA Honours student in Bengaluru building AWS threat detection, S3 security monitoring, and SOC alert triage tools." />
+<meta name="description" content="Sanay Krishna, final-year BCA Honours student in Bengaluru building AWS threat detection, S3 security monitoring, and SOC alert triage tools, plus CTF writeups." />
 <link rel="canonical" href="https://sanay.foo/" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://sanay.foo/" />
 <meta property="og:site_name" content="Sanay Krishna" />
 <meta property="og:title" content="Sanay Krishna | Cloud Security · Security Operations" />
-<meta property="og:description" content="AWS threat detection, S3 security monitoring, and SOC alert triage. BCA Honours, Chanakya University." />
+<meta property="og:description" content="AWS threat detection, S3 security monitoring, SOC alert triage, and CTF writeups. BCA Honours, Chanakya University." />
 <meta property="og:image" content="https://sanay.foo/assets/og-cover.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta property="og:image:alt" content="Sanay Krishna, Cloud Security and Security Operations" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Sanay Krishna | Cloud Security · Security Operations" />
-<meta name="twitter:description" content="AWS threat detection, S3 security monitoring, and SOC alert triage. BCA Honours, Chanakya University." />
+<meta name="twitter:description" content="AWS threat detection, S3 security monitoring, SOC alert triage, and CTF writeups. BCA Honours, Chanakya University." />
 <meta name="twitter:image" content="https://sanay.foo/assets/og-cover.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -241,6 +241,17 @@ body { transition: background-color 0.35s var(--ease), color 0.35s var(--ease); 
 .sval span { font-family: 'JetBrains Mono', monospace; font-size: 0.86rem; color: var(--text); transition: color 0.2s var(--ease); cursor: default; }
 .sval span:hover { color: var(--accent); }
 
+/* ctfs */
+.ctf-hl { color: var(--text); font-weight: 500; }
+.ctf-cats { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0.9rem 0 0; }
+.ctf-cats span { font-size: 0.68rem; letter-spacing: 0.06em; color: var(--dim); border: 1px solid var(--line-2); padding: 0.18rem 0.5rem; border-radius: 3px; }
+.ctf-links a { color: var(--text); text-decoration: underline 1px var(--line-2); text-underline-offset: 4px; transition: text-decoration-color 0.25s var(--ease), color 0.25s var(--ease); }
+.ctf-links a:hover { color: var(--accent); text-decoration-color: var(--accent); }
+.ctf-all { display: inline-block; margin-top: 1rem; font-size: 0.74rem; color: var(--dim); transition: color 0.25s var(--ease); }
+.ctf-all .arr { display: inline-block; transition: transform 0.25s var(--ease); }
+.ctf-all:hover { color: var(--text); }
+.ctf-all:hover .arr { transform: translate(2px,-2px); }
+
 /* experience */
 .exp { display: flex; flex-direction: column; }
 .erow { display: grid; grid-template-columns: 11rem 1fr; gap: 1.5rem; padding: 1.8rem 0; border-top: 1px solid var(--line); }
@@ -343,10 +354,11 @@ a.ctag:hover { background: rgba(70,208,138,0.08); border-color: var(--ok); }
       <nav class="index" data-rise style="animation-delay:.3s" aria-label="Sections">
         <a href="#about"><span class="n">01</span> About</a>
         <a href="#work"><span class="n">02</span> Selected work</a>
-        <a href="#skills"><span class="n">03</span> Skills</a>
-        <a href="#experience"><span class="n">04</span> Experience</a>
-        <a href="#certs"><span class="n">05</span> Certifications</a>
-        <a href="#contact"><span class="n">06</span> Contact</a>
+        <a href="#ctfs"><span class="n">03</span> CTFs</a>
+        <a href="#skills"><span class="n">04</span> Skills</a>
+        <a href="#experience"><span class="n">05</span> Experience</a>
+        <a href="#certs"><span class="n">06</span> Certifications</a>
+        <a href="#contact"><span class="n">07</span> Contact</a>
       </nav>
     </div>
 
@@ -366,7 +378,7 @@ a.ctag:hover { background: rgba(70,208,138,0.08); border-color: var(--ok); }
 
     <section id="about" class="sec" data-rise style="animation-delay:.18s">
       <div class="sec-head"><span class="sec-n mono">01</span><span class="sec-t mono">About</span></div>
-      <p class="lead">I'm a final-year BCA Honours student who'd rather build cloud security than study it. <span class="soft">The project I'm proudest of reads AWS CloudTrail logs and flags attacker activity, with every alert labelled by its MITRE ATT&amp;CK technique. The others watch S3 for risky changes and triage SOC alerts by risk. Based in Bengaluru, India. Most of my time goes to building detection systems and working through hands-on security labs.</span></p>
+      <p class="lead">I'm a final-year BCA Honours student who'd rather build cloud security than study it. <span class="soft">The project I'm proudest of reads AWS CloudTrail logs and flags attacker activity, with every alert labelled by its MITRE ATT&amp;CK technique. The others watch S3 for risky changes and triage SOC alerts by risk. Based in Bengaluru, India. Most of my time goes to building detection systems and working through hands-on security labs, and I play CTFs with my team, ornithorhynchus.sh.</span></p>
       <div class="stats">
         <div class="stat"><b>39</b><span>Detection rules shipped</span></div>
         <div class="stat"><b>02</b><span>Hackathon podiums</span></div>
@@ -427,8 +439,29 @@ a.ctag:hover { background: rgba(70,208,138,0.08); border-color: var(--ok); }
       </ol>
     </section>
 
+    <section id="ctfs" class="sec">
+      <div class="sec-head"><span class="sec-n mono">03</span><span class="sec-t mono">CTFs</span></div>
+      <div class="exp">
+        <div class="erow">
+          <div class="edate">Oct 2026</div>
+          <div>
+            <div class="erole">SpookyCTF 2026</div>
+            <div class="eorg">NJIT Cyber Security Network · Jeopardy · Team ornithorhynchus.sh (played as 404BrainNotFound)</div>
+            <p class="edesc">My first CTF at real scale, played as a two-person team. <b class="ctf-hl">156th of 780 teams (top 20%)</b>, 21 flags and 2,779 points, with solves in every category.</p>
+            <div class="ctf-cats mono"><span>Crypto 7</span><span>Pwn / RE 6</span><span>Forensics 3</span><span>Web 2</span><span>Misc 2</span><span>OSINT 1</span></div>
+            <ul class="proj-feat edesc-feat ctf-links">
+              <li><span><a href="https://github.com/SanayKrishna/spookyctf-2026-writeups/blob/main/pwn/cyberphobia-overflowed-bits.md" target="_blank" rel="noopener">Overflowed Bits</a>: buffer overflow into a function pointer</span></li>
+              <li><span><a href="https://github.com/SanayKrishna/spookyctf-2026-writeups/blob/main/crypto/no-nonsense-on-this-server.md" target="_blank" rel="noopener">No Nonsense on this Server</a>: ECDSA nonce reuse leaks the private key</span></li>
+              <li><span><a href="https://github.com/SanayKrishna/spookyctf-2026-writeups/blob/main/osint/nosocomephobia.md" target="_blank" rel="noopener">Nosocomephobia</a>: Morse from audio, reverse image search, then archive digging</span></li>
+            </ul>
+            <a class="ctf-all mono" href="https://github.com/SanayKrishna/spookyctf-2026-writeups" target="_blank" rel="noopener">All writeups on GitHub <span class="arr">↗</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id="skills" class="sec">
-      <div class="sec-head"><span class="sec-n mono">03</span><span class="sec-t mono">Skills</span></div>
+      <div class="sec-head"><span class="sec-n mono">04</span><span class="sec-t mono">Skills</span></div>
       <div class="skills">
         <div class="srow">
           <div class="skey">Cloud &amp; AWS</div>
@@ -437,6 +470,10 @@ a.ctag:hover { background: rgba(70,208,138,0.08); border-color: var(--ok); }
         <div class="srow">
           <div class="skey">Security</div>
           <div class="sval"><span>MITRE ATT&amp;CK</span><span>SIEM</span><span>SOAR</span><span>Incident Response</span><span>Threat Detection</span><span>CIS Benchmark</span></div>
+        </div>
+        <div class="srow">
+          <div class="skey">Offensive / CTF</div>
+          <div class="sval"><span>Ghidra</span><span>CyberChef</span><span>steghide</span><span>binwalk</span><span>exiftool</span><span>Binary Exploitation</span><span>Applied Crypto</span><span>Steganography</span><span>OSINT</span></div>
         </div>
         <div class="srow">
           <div class="skey">Languages &amp; Frameworks</div>
@@ -450,7 +487,7 @@ a.ctag:hover { background: rgba(70,208,138,0.08); border-color: var(--ok); }
     </section>
 
     <section id="experience" class="sec">
-      <div class="sec-head"><span class="sec-n mono">04</span><span class="sec-t mono">Experience</span></div>
+      <div class="sec-head"><span class="sec-n mono">05</span><span class="sec-t mono">Experience</span></div>
       <div class="exp">
         <div class="erow">
           <div class="edate">Dec 2025 – Present</div>
@@ -486,7 +523,7 @@ a.ctag:hover { background: rgba(70,208,138,0.08); border-color: var(--ok); }
     </section>
 
     <section id="certs" class="sec">
-      <div class="sec-head"><span class="sec-n mono">05</span><span class="sec-t mono">Certifications</span></div>
+      <div class="sec-head"><span class="sec-n mono">06</span><span class="sec-t mono">Certifications</span></div>
       <div class="certs">
         <div class="crow">
           <div><div class="cname">Introduction to Cybersecurity</div><div class="cmeta">Cisco NetAcad · 2023</div></div>
@@ -504,7 +541,7 @@ a.ctag:hover { background: rgba(70,208,138,0.08); border-color: var(--ok); }
     </section>
 
     <section id="contact" class="sec">
-      <div class="sec-head"><span class="sec-n mono">06</span><span class="sec-t mono">Contact</span></div>
+      <div class="sec-head"><span class="sec-n mono">07</span><span class="sec-t mono">Contact</span></div>
       <a class="contact-mail" href="mailto:sanay.rein@gmail.com">sanay.rein@gmail.com</a>
       <p class="contact-sub">Reach out if you want to talk about cloud security, detection engineering, or the work I've built.</p>
       <div class="contact-links">

@@ -358,9 +358,9 @@ a.ctag:hover { background: rgba(70,208,138,0.08); border-color: var(--ok); }
       <nav class="index" data-rise style="animation-delay:.3s" aria-label="Sections">
         <a href="#about"><span class="n">01</span> About</a>
         <a href="#work"><span class="n">02</span> Selected work</a>
-        <a href="#ctfs"><span class="n">03</span> CTFs</a>
-        <a href="#skills"><span class="n">04</span> Skills</a>
-        <a href="#experience"><span class="n">05</span> Experience</a>
+        <a href="#experience"><span class="n">03</span> Experience</a>
+        <a href="#ctfs"><span class="n">04</span> CTFs &amp; Achievements</a>
+        <a href="#skills"><span class="n">05</span> Skills</a>
         <a href="#certs"><span class="n">06</span> Certifications</a>
         <a href="#contact"><span class="n">07</span> Contact</a>
       </nav>
@@ -443,8 +443,28 @@ a.ctag:hover { background: rgba(70,208,138,0.08); border-color: var(--ok); }
       </ol>
     </section>
 
+    <section id="experience" class="sec">
+      <div class="sec-head"><span class="sec-n mono">03</span><span class="sec-t mono">Experience</span></div>
+      <div class="exp">
+        <div class="erow">
+          <div class="edate">Dec 2025 – Present</div>
+          <div>
+            <div class="erole">Application Security Intern</div>
+            <div class="eorg">Genki to Asia Co., Ltd., Japan · Remote</div>
+            <p class="edesc">Security reviews for KoKoMata, a location-based mobile app where people pin photos and experiences to real places for others nearby to discover. With a fellow intern, I review the app against the OWASP Top 10 and Mobile Top 10 and co-design the fixes.</p>
+            <ul class="proj-feat edesc-feat">
+              <li>Access control enforced with Row-Level Security, schema-isolated secrets, and SECURITY DEFINER RPCs</li>
+              <li>Session storage secured on-device with expo-secure-store</li>
+              <li>Reviewed OAuth sign-in, parameterised queries in privileged database functions, and HMAC-based location privacy</li>
+              <li>Added audit logging and rate limiting to flag anomalous unlock attempts</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id="ctfs" class="sec">
-      <div class="sec-head"><span class="sec-n mono">03</span><span class="sec-t mono">CTFs</span></div>
+      <div class="sec-head"><span class="sec-n mono">04</span><span class="sec-t mono">CTFs &amp; Achievements</span></div>
       <div class="exp">
         <div class="erow">
           <div class="edate">Oct 2026</div>
@@ -461,11 +481,27 @@ a.ctag:hover { background: rgba(70,208,138,0.08); border-color: var(--ok); }
             <a class="ctf-all mono" href="https://github.com/SanayKrishna/spookyctf-2026-writeups" target="_blank" rel="noopener">All writeups on GitHub <span class="arr">↗</span></a>
           </div>
         </div>
+        <div class="erow">
+          <div class="edate">2026</div>
+          <div>
+            <div class="erole">2nd Place, IKS Hackathon 2026</div>
+            <div class="eorg">Chanakya University, Bengaluru</div>
+            <p class="edesc">ChandaEngine, built with three teammates in 8 days: a computational take on Chandas Shastra, the rules of Sanskrit meter. A rule-based syllabifier with consonant-cluster lookahead feeds 15+ classical meter validators. FastAPI backend, Next.js frontend, Sarvam AI for speech in and out, and 21 passing unit tests.</p>
+          </div>
+        </div>
+        <div class="erow">
+          <div class="edate">2025</div>
+          <div>
+            <div class="erole">3rd Place, Srujana Hackathon 2025</div>
+            <div class="eorg">Chanakya University, Bengaluru</div>
+            <p class="edesc">Netā-Nomics, a platform that makes public spending easier to follow and harder to hide. An AI pipeline uses Tesseract OCR and Google Gemini to pull government expenditure data out of unstructured PDFs, flags anomalies with multiple agents, and drafts RTI and PIL documents. Next.js, FastAPI, PostgreSQL, Docker.</p>
+          </div>
+        </div>
       </div>
     </section>
 
     <section id="skills" class="sec">
-      <div class="sec-head"><span class="sec-n mono">04</span><span class="sec-t mono">Skills</span></div>
+      <div class="sec-head"><span class="sec-n mono">05</span><span class="sec-t mono">Skills</span></div>
       <div class="skills">
         <div class="srow">
           <div class="skey">Cloud &amp; AWS</div>
@@ -486,42 +522,6 @@ a.ctag:hover { background: rgba(70,208,138,0.08); border-color: var(--ok); }
         <div class="srow">
           <div class="skey">Tools &amp; Platforms</div>
           <div class="sval"><span>Nmap</span><span>Wireshark</span><span>Metasploit</span><span>Burp Suite</span><span>Linux</span><span>Git</span><span>GitHub Actions</span><span>PostgreSQL</span><span>SQLite</span><span>MySQL</span></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="experience" class="sec">
-      <div class="sec-head"><span class="sec-n mono">05</span><span class="sec-t mono">Experience</span></div>
-      <div class="exp">
-        <div class="erow">
-          <div class="edate">Dec 2025 – Present</div>
-          <div>
-            <div class="erole">Application Security Intern</div>
-            <div class="eorg">Genki to Asia Co., Ltd., Japan · Remote</div>
-            <p class="edesc">Security reviews for KoKoMata, a location-based mobile app where people pin photos and experiences to real places for others nearby to discover. With a fellow intern, I review the app against the OWASP Top 10 and Mobile Top 10 and co-design the fixes.</p>
-            <ul class="proj-feat edesc-feat">
-              <li>Access control enforced with Row-Level Security, schema-isolated secrets, and SECURITY DEFINER RPCs</li>
-              <li>Session storage secured on-device with expo-secure-store</li>
-              <li>Reviewed OAuth sign-in, parameterised queries in privileged database functions, and HMAC-based location privacy</li>
-              <li>Added audit logging and rate limiting to flag anomalous unlock attempts</li>
-            </ul>
-          </div>
-        </div>
-        <div class="erow">
-          <div class="edate">2026</div>
-          <div>
-            <div class="erole">2nd Place, IKS Hackathon 2026</div>
-            <div class="eorg">Chanakya University, Bengaluru</div>
-            <p class="edesc">ChandaEngine, built with three teammates in 8 days: a computational take on Chandas Shastra, the rules of Sanskrit meter. A rule-based syllabifier with consonant-cluster lookahead feeds 15+ classical meter validators. FastAPI backend, Next.js frontend, Sarvam AI for speech in and out, and 21 passing unit tests.</p>
-          </div>
-        </div>
-        <div class="erow">
-          <div class="edate">2025</div>
-          <div>
-            <div class="erole">3rd Place, Srujana Hackathon 2025</div>
-            <div class="eorg">Chanakya University, Bengaluru</div>
-            <p class="edesc">Netā-Nomics, a platform that makes public spending easier to follow and harder to hide. An AI pipeline uses Tesseract OCR and Google Gemini to pull government expenditure data out of unstructured PDFs, flags anomalies with multiple agents, and drafts RTI and PIL documents. Next.js, FastAPI, PostgreSQL, Docker.</p>
-          </div>
         </div>
       </div>
     </section>
